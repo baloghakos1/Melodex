@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('instrument');
+            $table->string('year');
             $table->unsignedBigInteger('artist_id');
             $table->foreign('artist_id')->references('id')->on('artists');
         });
