@@ -12,7 +12,9 @@
     @else
         <ul>
             @foreach($artists as $artist)
-                <li>{{ $artist->name }}</li>
+                <li>{{ $artist->name }}
+                <a href="{{ route('artists.show', $artist->id) }}" class="button">Megjelenítés</a>
+                </li>
             @endforeach
         </ul>
     @endif
