@@ -8,13 +8,13 @@ class Artist extends Model
 {
     public $timestamps = false;
 
-    function members()
+    function member()
     {
         return $this->hasMany(Member::class);
     }
 
 
-    function albums()
+    function album()
     {
         return $this->hasMany(Album::class);
     }
