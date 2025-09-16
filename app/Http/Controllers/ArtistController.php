@@ -39,7 +39,7 @@ class ArtistController extends Controller
     public function show(string $artistName)
     {
         $artist = Artist::whereRaw("LOWER(REPLACE(name,' ','-')) = ?", [strtolower($artistName)])->firstOrFail();
-        return view('artists.show', compact('artists'));
+        return view('artists.show', compact('artist'));
     }
 
     /**
