@@ -12,8 +12,8 @@
                 <div class="p-6 text-gray-900">
                     <form method="GET" action="{{ request()->url() }}">
                         @foreach($artists->unique('name') as $artist)
-                        <a href="{{ route('artists.index') }}">
-                        <button class="artist-btn" type="submit" id="{{$artist->id}}" name="{{$artist->name}}"><img class="artist-img" src="{{ asset('image/' . $artist->image) }}" alt=""><span class="artist-name">{{ $artist->name }}</span></button></a>
+                        <a href="{{ url('artist/' . str_replace(' ', '-', strtolower($artist->name))) }}">
+                        <button type="button" class="artist-btn"><img class="artist-img" src="{{ asset('image/' . $artist->image) }}" alt=""><span class="artist-name">{{ $artist->name }}</span></button></a>
                         @endforeach
                     </form>
                 </div>

@@ -36,9 +36,10 @@ class ArtistController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $artistName)
     {
-        //
+        $artist = Artist::whereRaw("LOWER(REPLACE(name,' ','-')) = ?", [strtolower($artistName)])->firstOrFail();
+        return view('artists.show', compact('artists'));
     }
 
     /**
