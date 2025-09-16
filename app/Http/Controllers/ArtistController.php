@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Artist;
+use App\Models\Member;
 
 class ArtistController extends Controller
 {
@@ -36,10 +37,22 @@ class ArtistController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        $artist = Artist::find($id);
-        return view('artists.show', compact('artist'));
+
+    }
+
+    public function description($artistName,$id)
+    {
+        $artist = Artist::findOrFail($id);
+
+        if ($artist->is_band === 'yes') {
+            $members = Member::where('artist_id', $id)->get();
+        } else {
+            $members = collect([$artist]);
+        }
+
+        return view('artist.description', compact('artist', 'members'));
     }
 
     /**

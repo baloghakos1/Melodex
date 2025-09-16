@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('nationality');
             $table->string('description')->nullable();
+            $table->string('is_band');
         });
     }
 
