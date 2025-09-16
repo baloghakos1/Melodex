@@ -10,10 +10,11 @@
 }
 
 .artist-img {
+    margin-top: 20px;
     width: 300px;
     height: 300px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 10px;
     border: 2px solid #ccc;
     transition: transform 0.2s;
 }
@@ -68,10 +69,35 @@
     transform: scale(1.05);
 }
 
+.artist-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;           
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.artist-photo {
+    width: 280px;          
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.artist-info h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 1000;
+}
+
 .artist-nationality img {
     vertical-align: middle;
-    margin-right: 6px;  
-    margin-bottom: 4px;
+    margin-right: 6px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     transition: transform 0.2s;
     cursor: pointer;
 }

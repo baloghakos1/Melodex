@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Artists</title>
+    <title>{{ $artist->name }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/artists.css') }}">
 </head>
@@ -13,13 +13,16 @@
         'British' => 'gb',
         'Puerto Rican' => 'pr',
         'South Korean' => 'kr',
-        // Add more as needed
     ];
 
     $code = $countryCodes[$artist->nationality] ?? 'un';
 @endphp
-    <a href="{{ route('artists.index') }}"><button class="back-btn"><i class="fa-solid fa-house"></i> All Artists</button></a>
-    <h1 class="artist-nationality">{{ $artist->name }} <img src="https://flagcdn.com/w40/{{$code}}.png" alt="{{ $artist->nationality }} Flag" title="{{ $artist->nationality }}"></h1>
-    <img src="{{ asset('image/' . $artist->image) }}" alt="{{ $artist->name }}" width="200">  
+    <a href="{{ route('artists.index') }}"><button class="back-btn"><i class="fa-solid fa-house"></i></button></a>
+    <div class="artist-container">
+        <img src="{{ asset('image/' . $artist->image) }}" alt="{{ $artist->name }}" class="artist-photo">
+        <div class="artist-info">
+            <h1 class="artist-nationality"> {{ $artist->name }} <img src="https://flagcdn.com/w40/{{$code}}.png" alt="{{ $artist->nationality }} Flag" title="{{ $artist->nationality }}"></h1>
+        </div>
+    </div>
 </body>
 </html>
