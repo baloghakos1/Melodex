@@ -9,16 +9,16 @@ use App\Models\Artist;
 class ArtistSeeder extends Seeder
 {
     const ITEMS = [
-        1 => ["Taylor Swift", "American"],
-        2 => ["Kendrick Lamar", "American"],
-        3 => ["Arctic Monkeys", "British"],
-        4 => ["Beyoncé", "American"],
-        5 => ["Radiohead", "British"],
-        6 => ["Bad Bunny", "Puerto Rican"],
-        7 => ["Billie Eilish", "American"],
-        8 => ["Foo Fighters", "American"],
-        9 => ["BLACKPINK", "South Korean"],
-        10 => ["Frank Ocean", "American"]
+        ["Taylor Swift", "American", "taylor_swift.jpg"],
+        ["Kendrick Lamar", "American", "kendrick_lamar.jpg"],
+        ["Arctic Monkeys", "British", "arctic_monkeys.jpg"],
+        ["Beyoncé", "American", "beyonce.jpg"],
+        ["Radiohead", "British", "radiohead.jpg"],
+        ["Bad Bunny", "Puerto Rican", "bad_bunny.jpg"],
+        ["Billie Eilish", "American", "billie_eilish.jpg"],
+        ["Foo Fighters", "American", "foo_fighters.jpg"],
+        ["BLACKPINK", "South Korean", "blackpink.jpg"],
+        ["Frank Ocean", "American", "frank_ocean.jpg"]
     ];
     public function run(): void
     {
@@ -26,6 +26,7 @@ class ArtistSeeder extends Seeder
             $artist = new Artist();
 	        $artist->name = $item[0];
             $artist->nationality = $item[1];
+            $artist->image = $item[2];
             $artist->save();
         }
     }
