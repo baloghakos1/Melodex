@@ -46,7 +46,8 @@ class ArtistCrudController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $artist = Artist::find($id);
+        return view('crud.artist_edit', compact('artist'));
     }
 
     /**
@@ -54,7 +55,18 @@ class ArtistCrudController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'nationality' => 'required|string|max:255',
+        ]);
+
+        $artist = Artist::find($id);
+        $artist->name = $request->name;
+        $artist->nationality = $request->nationality;
+        $artist->description = $request->description;
+        $artist->save();
+
+        return redirect()->route('crud.artists')->with('success', "Successful edit!");
     }
 
     /**

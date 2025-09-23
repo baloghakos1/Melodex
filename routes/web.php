@@ -25,5 +25,5 @@ Route::get('/crud.artists', [ArtistCrudController::class, 'index'])->name('crud.
 Route::get('/crud.members', [MemberCrudController::class, 'index'])->name('crud.members');
 Route::resource('albumscrud',AlbumCrudController::class);
 Route::resource('songscrud',SongCrudController::class);
-Route::resource('artistscrud',ArtistCrudController::class);
+Route::resource('artistcrud',ArtistCrudController::class);
 Route::resource('memberscrud',MemberCrudController::class);

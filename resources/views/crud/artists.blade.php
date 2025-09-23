@@ -59,8 +59,8 @@
                         <td>{{ $artist->nationality }}</td>
                         <td>{{ $artist->description }}</td>
                         <td>
-                            <button>+</button>
-                            <form action="{{ route('artistscrud.destroy', $artist->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you Sure?');">
+                            <button><a href="{{ route('artistcrud.edit', $artist->id) }}" >+</a></button>
+                            <form action="{{ route('artistcrud.destroy', $artist->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you Sure?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-red-600 hover:underline">-</button>
