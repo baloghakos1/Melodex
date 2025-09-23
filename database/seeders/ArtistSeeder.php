@@ -9,16 +9,16 @@ use App\Models\Artist;
 class ArtistSeeder extends Seeder
 {
     const ITEMS = [
-        1 => ["Taylor Swift", "American","no"],
-        2 => ["Kendrick Lamar", "American","no"],
-        3 => ["Arctic Monkeys", "British","yes"],
-        4 => ["Beyoncé", "American","no"],
-        5 => ["Radiohead", "British","yes"],
-        6 => ["Bad Bunny", "Puerto Rican","no"],
-        7 => ["Billie Eilish", "American","no"],
-        8 => ["Foo Fighters", "American","yes"],
-        9 => ["BLACKPINK", "South Korean","yes"],
-        10 => ["Frank Ocean", "American","no"]
+        ["Taylor Swift", "American", "taylor_swift.jpg","no"],
+        ["Kendrick Lamar", "American", "kendrick_lamar.jpg","no"],
+        ["Arctic Monkeys", "British", "arctic_monkeys.jpg","yes"],
+        ["Beyoncé", "American", "beyonce.jpg","no","no","no"],
+        ["Radiohead", "British", "radiohead.jpg","yes"],
+        ["Bad Bunny", "Puerto Rican", "bad_bunny.jpg","no","no"],
+        ["Billie Eilish", "American", "billie_eilish.jpg","no"],
+        ["Foo Fighters", "American", "foo_fighters.jpg","yes"],
+        ["BLACKPINK", "South Korean", "blackpink.jpg","yes"],
+        ["Frank Ocean", "American", "frank_ocean.jpg","no"]
     ];
     public function run(): void
     {
@@ -26,7 +26,8 @@ class ArtistSeeder extends Seeder
             $artist = new Artist();
 	        $artist->name = $item[0];
             $artist->nationality = $item[1];
-            $artist->is_band = $item[2];
+            $artist->image = $item[2];
+            $artist->is_band = $item[3];
             $artist->save();
         }
     }

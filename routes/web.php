@@ -7,6 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// ---Artists---
 Route::get('/artists', [ArtistController::class, 'index'])->name('artists.index');
+Route::get('/artist/{artistName}', [ArtistController::class, 'show'])->name('artists.show');
 Route::get('/artist/{artistId}/description', [ArtistController::class, 'description'])->name('artist.description');
  

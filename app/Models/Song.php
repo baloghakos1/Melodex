@@ -8,7 +8,7 @@ class Song extends Model
 {
     public $timestamps = false;
 
-    function albums()
+    function album()
     {
         return $this->belongsTo(Album::class);
     }
