@@ -48,7 +48,7 @@ class ArtistController extends Controller
         $artist = Artist::findOrFail($artistName);
 
         if ($artist->is_band === 'yes') {
-            $members = Member::where('artist_id', $artistName)->get();
+            $members = Member::whereRaw("LOWER(REPLACE(name,' ','-')) = ?", [strtolower($artistName)])->get();
         } else {
             $members = collect([$artist]);
         }
