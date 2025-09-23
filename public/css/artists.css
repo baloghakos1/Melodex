@@ -125,31 +125,3 @@
     background-color: #e0e0e0;
     transform: scale(1.05);
 }
-
-.member-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;           
-    margin-top: 10px;
-    margin-bottom: 25px;
-}
-
-.member-photo {
-    width: 140px;          
-    height: 140px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 2px solid #ccc;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.member-info h1 {
-    margin: 0;
-    font-size: 34px;
-    font-weight: 1000;
-}
-.member-info h3 {
-    margin: 2px;
-    font-size: 20px;
-    font-weight: 1000;
-}
