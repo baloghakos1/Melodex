@@ -8,9 +8,9 @@ class Member extends Model
 {
     public $timestamps = false;
 
-    function artist()
+    public function artist()
     {
-        return $this->belongsTo(Artist::class);
+        return $this->belongsTo(Artist::class, 'artist_id');
     }
-
+    
 }
