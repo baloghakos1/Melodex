@@ -42,17 +42,17 @@ class ArtistController extends Controller
 
     }
 
-    public function description($artistName,$id)
+    public function description($artistName)
     {
-        $artist = Artist::findOrFail($id);
+        $artist = Artist::findOrFail($artistName);
 
         if ($artist->is_band === 'yes') {
-            $members = Member::where('artist_id', $id)->get();
+            $members = Member::where('artist_id', $artistName)->get();
         } else {
             $members = collect([$artist]);
         }
 
-        return view('artist.description', compact('artist', 'members'));
+        return view('artists.description', compact('artist', 'members'));
     }
 
     /**
