@@ -43,12 +43,13 @@ class ArtistController extends Controller
         return view('artists.show', compact('artist'));
     }
 
-    public function description($artistName)
+    public function description($artistname)
     {
-        $artist = Artist::findOrFail($artistName);
+        $artist = Artist::whereRaw("LOWER(REPLACE(name,' ','-')) = ?", [strtolower($artistname)])->firstOrFail();
+        $artist_id = $artist->id;
 
         if ($artist->is_band === 'yes') {
-            $members = Member::whereRaw("LOWER(REPLACE(name,' ','-')) = ?", [strtolower($artistName)])->get();
+            $members = Member::where('artist_id', $artist_id)->get();
         } else {
             $members = collect([$artist]);
         }
