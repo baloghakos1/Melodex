@@ -25,7 +25,9 @@ class AlbumCrudController extends Controller
      */
     public function create()
     {
-        //
+        $artists = Artist::all();
+
+        return view('crud.album_create', compact('artists'));
     }
 
     /**
@@ -33,7 +35,22 @@ class AlbumCrudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'year' => 'required|integer|max:3000',
+            'genre' => 'required|string|max:255',
+            'artist_id' => 'required|exists:artists,id',
+        ]);
+
+        $album = new Album();
+        $album->name = $request->name;
+        $album->cover = $request->cover;
+        $album->year = $request->year;
+        $album->genre = $request->genre;
+        $album->artist_id = $request->artist_id;
+        $album->save();
+
+        return redirect()->route('crud.albums')->with('success', "--{$album->name}-- Successfully created!");
     }
 
     /**
@@ -49,7 +66,10 @@ class AlbumCrudController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $album = Album::find($id);
+        $artists = Artist::all();
+
+        return view('crud.album_edit', compact('album', 'artists'));
     }
 
     /**
@@ -57,7 +77,22 @@ class AlbumCrudController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'year' => 'required|integer|max:3000',
+            'genre' => 'required|string|max:255',
+            'artist_id' => 'required|exists:artists,id',
+        ]);
+
+        $album = Album::find($id);
+        $album->name = $request->name;
+        $album->cover = $request->cover;
+        $album->year = $request->year;
+        $album->genre = $request->genre;
+        $album->artist_id = $request->artist_id;
+        $album->save();
+
+        return redirect()->route('crud.albums')->with('success', "Successful edit!");
     }
 
     /**

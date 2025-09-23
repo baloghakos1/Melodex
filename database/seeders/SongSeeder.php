@@ -22,7 +22,7 @@ class SongSeeder extends Seeder
         ["Pretty Sweet","","Christopher Breaux","27"],
         ["Facebook Story","","Sebastian Akchoté","27"],
         ["Close to You","","Christopher Breaux","27"],
-        ["White Ferrari","","Christopher Breaux, Kanye West","27"],
+        ["White Ferrari","","Christopher Breaux","27"],
         ["Seigfried","","Christopher Breaux","27"],
         ["Godspeed","","Christopher Breaux","27"],
         ["Futura Free","","Christopher Breaux","27"],

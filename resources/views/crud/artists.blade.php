@@ -19,8 +19,8 @@
     @endif
     <div class="p-6 text-gray-900">
         <form method="GET" action="{{ request()->url() }}">
-            {{ __('Válassz adattáblát: ') }}
-            <select name="crud" id="crud" title="Adattábla" onchange="location = this.value">
+            {{ __('Select Data table: ') }}
+            <select name="crud" id="crud" title="Data_table" onchange="location = this.value">
                 <option value="{{ route('crud.index') }}">-- Data tables --</option>
                 <option value="{{ route('crud.artists') }}" selected>
                         Artists
@@ -37,6 +37,13 @@
             </select>
         </form>
     </div>
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Artists Table</h2>
+        <button><a href="{{ route('artistcrud.create') }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+            + New Artist
+        </a></button>
+    </div>
+    <br>
     <div>
         @if($artists->isEmpty())
             <p>---</p>

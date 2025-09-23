@@ -9,8 +9,8 @@
 <body>
     <div class="p-6 text-gray-900">
         <form method="GET" action="{{ request()->url() }}">
-            {{ __('Válassz adattáblát: ') }}
-            <select name="crud" id="crud" title="Adattábla" onchange="location = this.value">
+            {{ __('Select Data table: ') }}
+            <select name="crud" id="crud" title="Data_table" onchange="location = this.value">
                 <option value="{{ route('crud.index') }}"  selected>-- Data tables --</option>
                 <option value="{{ route('crud.artists') }}">
                         Artists

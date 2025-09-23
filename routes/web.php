@@ -23,7 +23,7 @@ Route::get('/crud.albums', [AlbumCrudController::class, 'index'])->name('crud.al
 Route::get('/crud.songs', [SongCrudController::class, 'index'])->name('crud.songs');
 Route::get('/crud.artists', [ArtistCrudController::class, 'index'])->name('crud.artists');
 Route::get('/crud.members', [MemberCrudController::class, 'index'])->name('crud.members');
-Route::resource('albumscrud',AlbumCrudController::class);
-Route::resource('songscrud',SongCrudController::class);
+Route::resource('albumcrud',AlbumCrudController::class);
+Route::resource('songcrud',SongCrudController::class);
 Route::resource('artistcrud',ArtistCrudController::class);
-Route::resource('memberscrud',MemberCrudController::class);
+Route::resource('membercrud',MemberCrudController::class);

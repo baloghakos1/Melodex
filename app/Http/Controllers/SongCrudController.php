@@ -23,7 +23,9 @@ class SongCrudController extends Controller
      */
     public function create()
     {
-        //
+        $albums = Album::all();
+
+        return view('crud.song_create', compact('albums'));
     }
 
     /**
@@ -31,7 +33,20 @@ class SongCrudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'songwriter' => 'required|string|max:255',
+            'album_id' => 'required|exists:albums,id',
+        ]);
+
+        $song = new Song();
+        $song->name = $request->name;
+        $song->lyrics = $request->lyrics;
+        $song->songwriter = $request->songwriter;
+        $song->album_id = $request->album_id;
+        $song->save();
+
+        return redirect()->route('crud.songs')->with('success', "--{$song->name}-- Successfulfy created!");
     }
 
     /**
@@ -47,7 +62,10 @@ class SongCrudController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $song = Song::find($id);
+        $albums = Album::all();
+
+        return view('crud.song_edit', compact('song', 'albums'));
     }
 
     /**
@@ -55,7 +73,20 @@ class SongCrudController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'songwriter' => 'required|string|max:255',
+            'album_id' => 'required|exists:albums,id',
+        ]);
+
+        $song = Song::find($id);
+        $song->name = $request->name;
+        $song->lyrics = $request->lyrics;
+        $song->songwriter = $request->songwriter;
+        $song->album_id = $request->album_id;
+        $song->save();
+
+        return redirect()->route('crud.songs')->with('success', "Successful edit!");
     }
 
     /**

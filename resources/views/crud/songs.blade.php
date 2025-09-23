@@ -14,8 +14,8 @@
     @endif
     <div class="p-6 text-gray-900">
         <form method="GET" action="{{ request()->url() }}">
-            {{ __('Válassz adattáblát: ') }}
-            <select name="crud" id="crud" title="Adattábla" onchange="location = this.value">
+            {{ __('Select Data table: ') }}
+            <select name="crud" id="crud" title="Data_table" onchange="location = this.value">
                 <option value="{{ route('crud.index') }}">-- Data tables --</option>
                 <option value="{{ route('crud.artists') }}">
                         Artists
@@ -32,6 +32,13 @@
             </select>
         </form>
     </div>
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Songs Table</h2>
+        <button><a href="{{ route('songcrud.create') }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+            + New Song
+        </a></button>
+    </div>
+    <br>
     <div>
         @if($songs->isEmpty())
             <p>---</p>
@@ -56,8 +63,8 @@
                         <td>{{ $song->songwriter }}</td>
                         <td>{{ $song->album->name ?? 'N/A'}}</td>
                         <td>
-                            <button>+</button>
-                            <form action="{{ route('songscrud.destroy', $song->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you Sure?');">
+                            <button><a href="{{ route('songcrud.edit', $song->id) }}" >+</a></button>
+                            <form action="{{ route('songcrud.destroy', $song->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you Sure?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-red-600 hover:underline">-</button>

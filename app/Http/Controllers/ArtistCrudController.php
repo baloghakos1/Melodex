@@ -22,7 +22,7 @@ class ArtistCrudController extends Controller
      */
     public function create()
     {
-        //
+        return view('crud.artist_create');
     }
 
     /**
@@ -30,7 +30,18 @@ class ArtistCrudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'nationality' => 'required|string|max:255',
+        ]);
+
+        $artist = new Artist();
+        $artist->name = $request->name;
+        $artist->nationality = $request->nationality;
+        $artist->description = $request->description;
+        $artist->save();
+
+        return redirect()->route('crud.artists')->with('success', "--{$artist->name}-- successfully created!");
     }
 
     /**
