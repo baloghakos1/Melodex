@@ -9,6 +9,7 @@
     <title>CRUD</title>
 </head>
 <body>
+    <a href="{{ url('/') }}"><button class="back-btn"><i class="fa-solid fa-left-long"></i></button></a>
     @if(session('error'))
         <script>
             alert('{{ session("error") }}');
@@ -41,9 +42,9 @@
     </div>
     <div class="flex justify-between items-center mb-4">
         <h2 class="text-xl font-bold">Artists Table</h2>
-        <button><a href="{{ route('artistcrud.create') }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+        <a href="{{ route('artistcrud.create') }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"><button>
             <i class="fa-solid fa-plus"></i>
-        </a></button>
+        </button></a>
     </div>
     <br>
     <div>
@@ -72,7 +73,7 @@
                         <td>{{ $artist->description }}</td>
                         <td>{{ $artist->is_band }}</td>
                         <td>
-                            <button><a href="{{ route('artistcrud.edit', $artist->id) }}" ><i class="fa-solid fa-pencil"></i></a></button>
+                            <a href="{{ route('artistcrud.edit', $artist->id) }}" ><button><i class="fa-solid fa-pencil"></i></button></a>
                             <form action="{{ route('artistcrud.destroy', $artist->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you Sure?');">
                                 @csrf
                                 @method('DELETE')
