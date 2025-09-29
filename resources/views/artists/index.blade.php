@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Artists</title>
+    <link rel="stylesheet" href="{{ asset('css/artists.css') }}">
 </head>
 <body>
     <div class="py-12">
@@ -10,25 +11,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <form method="GET" action="{{ request()->url() }}">
-                        {{ __('Válassz adattáblát: ') }}
-                        <select name="crud" id="crud" title="Adattábla" onchange="location = this.value">
-                        <option value="{{ route('artists.index') }}" selected>-- Adattáblák --</option>
-                            <option value="{{ route('artists.index') }}" >
-                                    
-                            </option>
-                            <option value="{{ route('artists.index') }}">
-                                    Tantárgyak
-                            </option>
-                            <option value="{{ route('artists.index') }}">
-                                    Osztályok
-                            </option>
-                            <option value="{{ route('artists.index') }}">
-                                    Osztályok_Tantárgyai
-                            </option>
-                            <option value="{{ route('artists.index') }}">
-                                    Osztályzatok
-                            </option>
-                        </select>
+                        @foreach($artists->unique('name') as $artist)
+                        <a href="{{ url('artist/' . str_replace(' ', '-', strtolower($artist->name))) }}">
+                        <button type="button" class="artist-btn"><img class="artist-img" src="{{ asset('image/' . $artist->image) }}" alt=""><span class="artist-name">{{ $artist->name }}</span></button></a>
+                        @endforeach
                     </form>
                 </div>
             </div>

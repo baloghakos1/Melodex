@@ -9,16 +9,16 @@ use App\Models\Artist;
 class ArtistSeeder extends Seeder
 {
     const ITEMS = [
-        1 => ["Taylor Swift", "American"],
-        2 => ["Kendrick Lamar", "American"],
-        3 => ["Arctic Monkeys", "British"],
-        4 => ["Beyoncé", "American"],
-        5 => ["Radiohead", "British"],
-        6 => ["Bad Bunny", "Puerto Rican"],
-        7 => ["Billie Eilish", "American"],
-        8 => ["Foo Fighters", "American"],
-        9 => ["BLACKPINK", "South Korean"],
-        10 => ["Frank Ocean", "American"]
+        ["Taylor Swift", "American", "taylor_swift.jpg","Taylor Swift began her career as a teenage country singer-songwriter from Pennsylvania, quickly gaining attention with her honest lyrics and relatable storytelling. Her self-titled debut album launched her into the spotlight, but it was Fearless that cemented her as a country-pop crossover star. Over the years, Taylor has continually evolved, embracing pop, indie, and alternative styles while maintaining her signature narrative voice. Known for her impressive songwriting skills and chart-topping albums, she has become one of the best-selling artists of all time, winning numerous Grammys and influencing an entire generation of musicians.","no"],
+        ["Kendrick Lamar", "American", "kendrick_lamar.jpg","Hailing from Compton, California, Kendrick Lamar rose from underground rapper to one of hip-hop’s most respected voices. His early mixtapes showcased his sharp storytelling and complex lyricism, but it was his major-label debut, good kid, m.A.A.d city, that earned widespread acclaim for its cinematic depiction of life in Compton. Kendrick’s socially conscious themes, combined with innovative production, have won him multiple Grammy Awards and a Pulitzer Prize, making him a pivotal figure in modern hip-hop. His albums challenge listeners with deep reflections on race, identity, and society.","no"],
+        ["Arctic Monkeys", "British", "arctic_monkeys.jpg","Formed in Sheffield, England, Arctic Monkeys quickly gained fame in the mid-2000s through the internet and word of mouth, a pioneering success story for the digital age. Their debut album, Whatever People Say I Am, That’s What I’m Not, became the fastest-selling debut album in UK history. Known for Alex Turner’s witty, sharp lyrics and catchy guitar riffs, the band’s sound has evolved over the years to incorporate more experimental and mature tones. Arctic Monkeys remain a defining act in indie and alternative rock.","yes"],
+        ["Beyoncé", "American", "beyonce.jpg","Starting her career as the lead singer of Destiny’s Child, one of the best-selling girl groups of all time, Beyoncé Knowles quickly emerged as a solo powerhouse. Her debut solo album Dangerously in Love showcased her vocal prowess and versatility, blending R&B, pop, and hip-hop. Over the years, Beyoncé has become a global icon known for her dynamic performances, groundbreaking visuals, and commitment to empowerment and social justice. With multiple Grammy Awards and critically acclaimed albums, she continues to shape music and culture worldwide.","no"],
+        ["Radiohead", "British", "radiohead.jpg","Formed in Oxfordshire, England, Radiohead rose to prominence in the early 1990s with the hit single “Creep.” However, it was their 1997 album OK Computer that marked a turning point, showcasing their ability to blend rock with experimental and electronic sounds. Known for pushing musical boundaries, Radiohead has been influential in alternative and experimental rock, continuously reinventing their sound with albums like Kid A and In Rainbows. Their music combines introspective lyrics with innovative production, earning them a dedicated fanbase and critical acclaim.","yes"],
+        ["Bad Bunny", "Puerto Rican", "bad_bunny.jpg","Born Benito Antonio Martínez in Puerto Rico, Bad Bunny started out uploading songs to SoundCloud before breaking into mainstream Latin music. His fusion of reggaeton, Latin trap, and urban beats, paired with his distinctive voice and fashion-forward image, quickly set him apart. Bad Bunny’s success skyrocketed with hits like “Soy Peor” and collaborations with major artists worldwide. He’s known for breaking barriers in Latin music, using his platform to challenge social norms and advocate for inclusivity. Today, he’s one of the biggest Latin music stars globally.","no"],
+        ["Billie Eilish", "American", "billie_eilish.jpg","Billie Eilish, a Los Angeles native, burst onto the scene as a teenager with a haunting and unique sound that blended dark pop, electropop, and indie influences. Alongside her brother Finneas, who produces much of her music, Billie’s debut single “Ocean Eyes” went viral, leading to a record deal and the release of her debut album When We All Fall Asleep, Where Do We Go?. Known for her whispery vocals, raw lyrics, and distinct aesthetic, Billie quickly became a voice for Gen Z, winning multiple Grammys and redefining contemporary pop.","no"],
+        ["Foo Fighters", "American", "foo_fighters.jpg","After the tragic end of Nirvana, drummer Dave Grohl launched Foo Fighters as a solo project that quickly grew into a full band. Their debut self-titled album introduced a new wave of post-grunge rock with melodic hooks and energetic performances. Over decades, Foo Fighters have become one of rock’s most reliable and beloved acts, known for anthemic songs like “Everlong” and “The Pretender.” Their resilience and dedication to rock music have earned them multiple awards and a devoted global following.","yes"],
+        ["BLACKPINK", "South Korean", "blackpink.jpg","Formed by YG Entertainment in South Korea, BLACKPINK debuted in 2016 and quickly became one of K-pop’s most successful girl groups. Combining powerful vocals, sharp choreography, and a blend of hip-hop, EDM, and pop, they have gained massive international popularity. Hits like “DDU-DU DDU-DU” and “Kill This Love” helped them break records on global charts, while their fashion-forward image and social media presence have expanded their influence far beyond music. BLACKPINK continues to drive the global K-pop movement.","yes"],
+        ["Frank Ocean", "American", "frank_ocean.jpg","Frank Ocean emerged from the vibrant hip-hop and R&B scene in the early 2010s with his introspective songwriting and smooth vocal style. Raised in New Orleans, he first gained attention as a songwriter for artists like Beyoncé and Justin Bieber before releasing his critically acclaimed mixtape Nostalgia, Ultra. His albums Channel Orange and Blonde received widespread praise for their emotional depth and genre-blurring sound. Frank Ocean is celebrated for his storytelling, exploring themes of love, identity, and personal vulnerability, earning him a dedicated and loyal fanbase.","no"]
     ];
     public function run(): void
     {
@@ -26,6 +26,9 @@ class ArtistSeeder extends Seeder
             $artist = new Artist();
 	        $artist->name = $item[0];
             $artist->nationality = $item[1];
+            $artist->image = $item[2];
+            $artist->description = $item[3];
+            $artist->is_band = $item[4];
             $artist->save();
         }
     }

@@ -18,7 +18,7 @@ Route::resource('artists',ArtistController::class);
 Route::get('/crud.index', function () {
     return view('crud.index');
 })->name('crud.index');
-
+// ---Crud---
 Route::get('/crud.albums', [AlbumCrudController::class, 'index'])->name('crud.albums');
 Route::get('/crud.songs', [SongCrudController::class, 'index'])->name('crud.songs');
 Route::get('/crud.artists', [ArtistCrudController::class, 'index'])->name('crud.artists');
@@ -27,3 +27,8 @@ Route::resource('albumcrud',AlbumCrudController::class);
 Route::resource('songcrud',SongCrudController::class);
 Route::resource('artistcrud',ArtistCrudController::class);
 Route::resource('membercrud',MemberCrudController::class);
+// ---Artists---
+Route::get('/artists', [ArtistController::class, 'index'])->name('artists.index');
+Route::get('/artist/{artistname}', [ArtistController::class, 'show'])->name('artists.show');
+Route::get('/artist/{artistname}/description', [ArtistController::class, 'description'])->name('artists.description');
+

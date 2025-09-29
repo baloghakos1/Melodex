@@ -37,7 +37,6 @@ class AlbumSeeder extends Seeder
         ["The Album","","2020","POP","9"],
         ["Blonde","","2016","R&B","10"],
         ["Channel Orange","","2013","R&B","10"],
-        
     ];
     public function run(): void
     {
