@@ -1,0 +1,20 @@
+.fixed-home-button {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    padding: 12px 18px;
+    transition: background-color 0.3s ease;
+    z-index: 1000; /* Make sure it’s on top */
+}
+
+.fixed-home-button img {
+    width: 192px;
+    height: 108px;
+    display: block;
+    filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, 0.4));
+    transition: transform 0.4s ease; 
+}
+
+.fixed-home-button:hover img {
+    transform: scale(1.10); 
+}

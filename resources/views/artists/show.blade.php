@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,8 @@
     <title>{{ $artist->name }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/artists.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('front_view.ico') }}">
+    <link rel="stylesheet" href="{{ asset('css/home_btn.css') }}">
 </head>
 <body>
 @php
@@ -33,5 +37,8 @@
         </div>
         @endforeach
     </div>
+    <a href="{{ url('/') }}" class="fixed-home-button">
+    <img src="{{ asset('image/angled_view.png') }}" alt="Home" />
+    </a>
 </body>
 </html>
