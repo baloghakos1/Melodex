@@ -38,7 +38,9 @@ class ArtistCrudController extends Controller
         $artist = new Artist();
         $artist->name = $request->name;
         $artist->nationality = $request->nationality;
+        $artist->image = $request->image;
         $artist->description = $request->description;
+        $artist->is_band = $request->is_band;
         $artist->save();
 
         return redirect()->route('crud.artists')->with('success', "--{$artist->name}-- successfully created!");
@@ -74,7 +76,9 @@ class ArtistCrudController extends Controller
         $artist = Artist::find($id);
         $artist->name = $request->name;
         $artist->nationality = $request->nationality;
+        $artist->image = $request->image;
         $artist->description = $request->description;
+        $artist->is_band = $request->is_band;
         $artist->save();
 
         return redirect()->route('crud.artists')->with('success', "Successful edit!");

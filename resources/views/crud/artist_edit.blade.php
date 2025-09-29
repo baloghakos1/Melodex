@@ -29,11 +29,27 @@
             </div>
 
             <div class="mb-4">
+                <label for="image" class="block text-sm font-medium text-gray-700">Artist Image</label>
+                <input type="text" name="image" id="image" value="{{ old('image', $artist->image) }}" readonly>
+                @error('image')
+                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
                 <label for="year" class="block text-sm font-medium text-gray-700">Artist Description</label>
                 <input type="text" name="description" id="description" value="{{ old('nationality', $artist->description) }}">
                 @error('description')
                     <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                 @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="is_band" class="block text-sm font-medium text-gray-700">Is Band</label>
+                <select name="is_band" id="is_band" class="mt-1 block w-full rounded border-gray-300 shadow-sm">
+                    <option value="yes" {{ $artist->is_band == 'yes' ? 'selected' : '' }}>yes</option>
+                    <option value="no" {{ $artist->is_band == 'no' ? 'selected' : '' }}>no</option>
+                </select>
             </div>
 
             <div class="flex justify-end">
@@ -46,6 +62,5 @@
             </div>
         </form>
     </div>
-    
 </body>
 </html>

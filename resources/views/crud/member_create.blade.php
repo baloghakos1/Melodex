@@ -39,11 +39,21 @@
                 <label for="artist_id" class="block text-sm font-medium text-gray-700">Artist Id</label>
                 <select name="artist_id" id="artist_id" class="mt-1 block w-full rounded border-gray-300 shadow-sm">
                     @foreach($artists as $artist)
-                        <option value="{{ $artist->id }}" {{ old('artist_id') == $artist->id ? 'selected' : '' }}>
-                            {{ $artist->name }}
-                        </option>
+                        @if($artist->is_band === 'yes')
+                            <option value="{{ $artist->id }}" {{ old('artist_id') == $artist->id ? 'selected' : '' }}>
+                                {{ $artist->name }}
+                            </option>
+                        @endif
                     @endforeach
                 </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="image" class="block text-sm font-medium text-gray-700">Member Image URL</label>
+                <input type="text" name="image" id="image" value="{{ old('image') }}">
+                @error('image')
+                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="flex justify-end">
@@ -56,6 +66,5 @@
             </div>
         </form>
     </div>
-    
 </body>
 </html>

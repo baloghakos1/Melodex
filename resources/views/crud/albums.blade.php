@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>CRUD</title>
 </head>
 <body>
@@ -40,7 +41,7 @@
     <div class="flex justify-between items-center mb-4">
         <h2 class="text-xl font-bold">Albums Table</h2>
         <button><a href="{{ route('albumcrud.create') }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-            + New Album
+            <i class="fa-solid fa-plus"></i>
         </a></button>
     </div>
     <br>
@@ -70,11 +71,11 @@
                         <td>{{ $album->genre }}</td>
                         <td>{{ $album->artist->name ?? 'N/A'}}</td>
                         <td>
-                            <button><a href="{{ route('albumcrud.edit', $album->id) }}" >+</a></button>
+                            <button><a href="{{ route('albumcrud.edit', $album->id) }}" ><i class="fa-solid fa-pencil"></i></a></button>
                             <form action="{{ route('albumcrud.destroy', $album->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you Sure?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:underline">-</button>
+                                <button type="submit" class="text-red-600 hover:underline"><i class="fa-solid fa-minus"></i></button>
                             </form>
                         </td>
                     </tr>

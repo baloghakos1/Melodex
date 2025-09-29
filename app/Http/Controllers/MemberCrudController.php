@@ -45,6 +45,7 @@ class MemberCrudController extends Controller
         $member->instrument = $request->instrument;
         $member->year = $request->year;
         $member->artist_id = $request->artist_id;
+        $member->image = $request->image;
         $member->save();
 
         return redirect()->route('crud.members')->with('success', "--{$member->name}-- Successfully created!");
@@ -86,6 +87,7 @@ class MemberCrudController extends Controller
         $member->instrument = $request->instrument;
         $member->year = $request->year;
         $member->artist_id = $request->artist_id;
+        $member->image = $request->image;
         $member->save();
 
         return redirect()->route('crud.members')->with('success', "Successful edit!");

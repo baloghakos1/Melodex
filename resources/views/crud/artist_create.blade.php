@@ -35,6 +35,22 @@
                 @enderror
             </div>
 
+            <div class="mb-4">
+                <label for="image" class="block text-sm font-medium text-gray-700">Artist Image</label>
+                <input type="text" name="image" id="image" value="{{ old('image', "Not available at this time") }}" readonly>
+                @error('image')
+                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="is_band" class="block text-sm font-medium text-gray-700">Is Band</label>
+                <select name="is_band" id="is_band" class="mt-1 block w-full rounded border-gray-300 shadow-sm">
+                    <option value="yes">yes</option>
+                    <option value="no">no</option>
+                </select>
+            </div>
+
             <div class="flex justify-end">
                 <a href="{{ route('crud.artists') }}" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition mr-2">
                     Back
@@ -45,6 +61,5 @@
             </div>
         </form>
     </div>
-    
 </body>
 </html>
