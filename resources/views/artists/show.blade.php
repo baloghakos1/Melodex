@@ -25,5 +25,13 @@
             <a href="{{  route('artists.description', ['artistname' => str_replace(' ', '-', strtolower($artist->name))]) }}"><button class="read-more-btn"><i class="fa-solid fa-square-plus"></i>Read More</button></a>
         </div>
     </div>
+    <div class="album-container">
+        @foreach($albums as $album)
+        <div class="album-info">
+            <h1 class="album-name"> {{ $album->name }}</h1>
+            <h3 class="album-release">{{ $album->year}}</h3>
+        </div>
+        @endforeach
+    </div>
 </body>
 </html>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Artist;
+use App\Models\Album;
 
 class ArtistController extends Controller
 {
@@ -39,9 +40,10 @@ class ArtistController extends Controller
     public function show(string $artistName)
     {
         $artist = Artist::whereRaw("LOWER(REPLACE(name,' ','-')) = ?", [strtolower($artistName)])->firstOrFail();
-        return view('artists.show', compact('artist'));
+        $artist_id = $artist->id;
+        $albums = Album::where('artist_id', $artist_id)->get();
+        return view('artists.show', compact('artist','albums'));
     }
-
 
     /**
      * Show the form for editing the specified resource.
