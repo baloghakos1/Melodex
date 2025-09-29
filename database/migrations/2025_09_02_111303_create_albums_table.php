@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('cover');
+            $table->string('cover')->nullable();
             $table->string('year');
             $table->string('genre');
             $table->unsignedBigInteger('artist_id');

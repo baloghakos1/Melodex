@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('year');
             $table->unsignedBigInteger('artist_id');
             $table->foreign('artist_id')->references('id')->on('artists');
-            $table->string('image');
+            $table->string('image')->nullable();
         });
     }
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">  
+    <meta charset="UTF-8">
     <title>{{ $artist->name }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/description.css') }}">
@@ -24,7 +24,7 @@
                     <h1 class="member-name">{{ $member->name }} ({{$member->year}})</h1>
                     <h3 class="member-instrument">{{$member->instrument}}</h3>
                 </div>
-            </div>  
+            </div>
             @endforeach
         @else
             <p>Solo Artist: {{ $artist->name }}</p>
