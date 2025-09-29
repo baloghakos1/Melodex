@@ -21,7 +21,7 @@
 
     $code = $countryCodes[$artist->nationality] ?? 'un';
 @endphp
-    <a href="{{ route('artists.index') }}"><button class="back-btn"><i class="fa-solid fa-house"></i></button></a>
+    <a href="{{ route('artists.index') }}"><button class="back-btn"><i class="fa-solid fa-left-long"></i></button></a>
     <div class="artist-container">
         <img src="{{ asset('image/' . $artist->image) }}" alt="{{ $artist->name }}" class="artist-photo">
         <div class="artist-info">
@@ -31,11 +31,13 @@
     </div>
     <div class="album-container">
         @foreach($albums as $album)
+        <a href="{{ route('artists.songs', ['artistname' => str_replace(' ', '-', strtolower($artist->name)),'albumid' => $album->id]) }}">
         <div class="album-info">
             <h1 class="album-name"> {{ $album->name }}</h1>
             <h3 class="album-release">{{ $album->year}}</h3>
         </div>
-        @endforeach
+        </a>
+        @endforeach       
     </div>
     <a href="{{ url('/') }}" class="fixed-home-button">
     <img src="{{ asset('image/angled_view.png') }}" alt="Home" />

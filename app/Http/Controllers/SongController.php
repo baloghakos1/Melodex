@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Artist;
+use App\Models\Song;
 
 class SongController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($artistname, $album_id)
     {
-        //
+        $artist = Artist::where('name', str_replace('-', ' ', ucfirst($artistname)))->first();
+        $songs = Song::where('album_id', $album_id)->get();
+        return view('artists.songs', compact('artist','songs'));
     }
 
     /**
