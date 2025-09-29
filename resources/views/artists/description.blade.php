@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,8 @@
     <title>{{ $artist->name }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/description.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('front_view.ico') }}">
+    <link rel="stylesheet" href="{{ asset('css/home_btn.css') }}">
 </head>
 <body>
 <a href="{{ url('artist/' . str_replace(' ', '-', strtolower($artist->name))) }}"><button class="back-btn"><i class="fa-solid fa-left-long"></i></button></a>
@@ -33,6 +36,10 @@
         <h3 class="description">{{ $artist->description }}</h3>
     </div>
 </div>
+
+<a href="{{ url('/') }}" class="fixed-home-button">
+    <img src="{{ asset('image/angled_view.png') }}" alt="Home" />
+    </a>
 
 </body>
 </html>

@@ -1,9 +1,13 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Artists</title>
     <link rel="stylesheet" href="{{ asset('css/artists.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('front_view.ico') }}">
+    <link rel="stylesheet" href="{{ asset('css/home_btn.css') }}">
 </head>
 <body>
     <div class="py-12">
@@ -20,5 +24,8 @@
             </div>
         </div>
     </div>
+    <a href="{{ url('/') }}" class="fixed-home-button">
+    <img src="{{ asset('image/angled_view.png') }}" alt="Home" />
+    </a>
 </body>
 </html>
