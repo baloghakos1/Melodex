@@ -36,8 +36,8 @@
 }
 
 .artist-btn:hover {
-    z-index: 10; 
-    transform: scale(1.2); 
+    z-index: 10;
+    transform: scale(1.2);
 }
 
 .artist-btn:hover .artist-name {
@@ -46,9 +46,9 @@
 
 .back-link {
     position: absolute;
-    top: 20px;   
-    left: 20px;  
-    z-index: 1000; 
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
 }
 
 .back-btn {
@@ -72,13 +72,13 @@
 .artist-container {
     display: flex;
     align-items: center;
-    gap: 15px;           
+    gap: 15px;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
 .artist-photo {
-    width: 280px;          
+    width: 280px;
     height: 280px;
     object-fit: cover;
     border-radius: 10px;

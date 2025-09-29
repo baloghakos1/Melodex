@@ -9,7 +9,7 @@
 </head>
 <body>
     <a href="{{ route('artists.index') }}">Artists</a>
-   
-    
+    <br><br>
+    <a href="{{ route('crud.index') }}">Crud</a>
 </body>
 </html>
