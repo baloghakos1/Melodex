@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\SongController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\AlbumCrudController;
 use App\Http\Controllers\SongCrudController;
@@ -32,3 +33,4 @@ Route::resource('membercrud',MemberCrudController::class);
 Route::get('/artists', [ArtistController::class, 'index'])->name('artists.index');
 Route::get('/artist/{artistname}', [ArtistController::class, 'show'])->name('artists.show');
 Route::get('/artist/{artistname}/description', [MemberController::class, 'index'])->name('artists.description');
+Route::get('/artist/{artistname}/{albumid}', [SongController::class, 'index'])->name('artists.songs');
