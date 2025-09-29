@@ -4,15 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Artist;
+use App\Models\Member;
 
 class MemberController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($artistname)
     {
-        //
+        $artist = Artist::whereRaw("LOWER(REPLACE(name,' ','-')) = ?", [strtolower($artistname)])->firstOrFail();
+        $artist_id = $artist->id;
+
+        if ($artist->is_band === 'yes') {
+            $members = Member::where('artist_id', $artist_id)->get();
+        } else {
+            $members = collect([$artist]);
+        }
+
+        return view('artists.description', compact('artist', 'members')); 
     }
 
     /**
