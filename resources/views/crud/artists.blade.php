@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/artists.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home_btn.css') }}">
     <title>CRUD</title>
 </head>
 <body>
-    <a href="{{ url('/') }}"><button class="back-btn"><i class="fa-solid fa-left-long"></i></button></a>
     @if(session('error'))
         <script>
             alert('{{ session("error") }}');
@@ -69,7 +69,7 @@
                         <td>{{ $artist->id }}</td>
                         <td>{{ $artist->name }}</td>
                         <td>{{ $artist->nationality }}</td>
-                        <td><img src="{{ asset('image/' . $artist->image) }}" alt="{{ $artist->name }}" class="artist-photo"></td>
+                        <td><img src="{{ ($artist->image) }}" alt="{{ $artist->name }}" class="artist-photo"></td>
                         <td>{{ $artist->description }}</td>
                         <td>{{ $artist->is_band }}</td>
                         <td>
@@ -86,5 +86,8 @@
         </table>
         @endif
     </div>
+    <a href="{{ url('/') }}" class="fixed-home-button">
+    <img src="{{ asset('image/angled_view.png') }}" alt="Home" />
+    </a>
 </body>
 </html>

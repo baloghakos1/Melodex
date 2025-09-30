@@ -29,8 +29,8 @@
             </div>
 
             <div class="mb-4">
-                <label for="image" class="block text-sm font-medium text-gray-700">Artist Image</label>
-                <input type="text" name="image" id="image" value="{{ old('image', $artist->image) }}" readonly>
+                <label for="image" class="block text-sm font-medium text-gray-700">Artist Image URL</label>
+                <input type="text" name="image" id="image" value="{{ old('image', $artist->image) }}">
                 @error('image')
                     <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                 @enderror
@@ -54,7 +54,7 @@
 
             <div class="flex justify-end">
                 <a href="{{ route('crud.artists') }}" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition mr-2">
-                    Back
+                    <button>Back</button>
                 </a>
                 <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
                     Confirm
