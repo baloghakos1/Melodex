@@ -17,7 +17,7 @@
                     <form method="GET" action="{{ request()->url() }}">
                         @foreach($artists->unique('name') as $artist)
                         <a href="{{ url('artist/' . str_replace(' ', '-', strtolower($artist->name))) }}">
-                        <button type="button" class="artist-btn"><img class="artist-img" src="{{ asset('image/' . $artist->image) }}" alt=""><span class="artist-name">{{ $artist->name }}</span></button></a>
+                        <button type="button" class="artist-btn"><img class="artist-img" src="{{ $artist->image }}" alt=""><span class="artist-name">{{ $artist->name }}</span></button></a>
                         @endforeach
                     </form>
                 </div>

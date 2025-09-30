@@ -23,7 +23,7 @@
 @endphp
     <a href="{{ route('artists.index') }}"><button class="back-btn"><i class="fa-solid fa-left-long"></i></button></a>
     <div class="artist-container">
-        <img src="{{ asset('image/' . $artist->image) }}" alt="{{ $artist->name }}" class="artist-photo">
+        <img src="{{ $artist->image }}" alt="{{ $artist->name }}" class="artist-photo">
         <div class="artist-info">
             <h1 class="artist-nationality"> {{ $artist->name }} <img src="https://flagcdn.com/w40/{{$code}}.png" alt="{{ $artist->nationality }} Flag" title="{{ $artist->nationality }}"></h1>
             <a href="{{  route('artists.description', ['artistname' => str_replace(' ', '-', strtolower($artist->name))]) }}"><button class="read-more-btn"><i class="fa-solid fa-square-plus"></i>Read More</button></a>
