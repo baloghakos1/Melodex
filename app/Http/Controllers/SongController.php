@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Artist;
 use App\Models\Song;
+use App\Models\Album;
 
 class SongController extends Controller
 {
@@ -16,7 +17,8 @@ class SongController extends Controller
     {
         $artist = Artist::where('name', str_replace('-', ' ', ucfirst($artistname)))->first();
         $songs = Song::where('album_id', $album_id)->get();
-        return view('artists.songs', compact('artist','songs'));
+        $album = Album::where('id',$album_id)->first();
+        return view('artists.songs', compact('artist','songs','album'));
     }
 
     /**

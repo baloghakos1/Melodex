@@ -1,0 +1,47 @@
+.album-cover-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* space between image and text */
+    background: #f9f9f9;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    text-align: left;
+}
+
+.album-cover-btn:hover {
+    background: #ececec;
+}
+
+.album-cover {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0; /* prevent image from shrinking */
+}
+
+.album-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.album-name {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.album-release {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #666;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/artists.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('front_view.ico') }}">
     <link rel="stylesheet" href="{{ asset('css/home_btn.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/album.css') }}">
 </head>
 <body>
 @php
@@ -33,8 +34,11 @@
         @foreach($albums as $album)
         <a href="{{ route('artists.songs', ['artistname' => str_replace(' ', '-', strtolower($artist->name)),'albumid' => $album->id]) }}">
         <div class="album-info">
+            <button class="album-cover-btn">
+            <img class="album-cover" src="{{ $album->cover }}" alt="">
             <h1 class="album-name"> {{ $album->name }}</h1>
             <h3 class="album-release">{{ $album->year}}</h3>
+            </button>
         </div>
         </a>
         @endforeach       
