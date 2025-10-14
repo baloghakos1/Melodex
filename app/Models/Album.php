@@ -18,4 +18,12 @@ class Album extends Model
         return $this->hasMany(Song::class);
     }
 
+    protected $fillable = [
+        'name',
+        'cover',
+        'year',
+        'genre',
+        'artist_id'
+    ];
+
 }

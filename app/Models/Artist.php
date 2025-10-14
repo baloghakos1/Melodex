@@ -18,4 +18,12 @@ class Artist extends Model
     {
         return $this->hasMany(Album::class);
     }
+
+    protected $fillable = [
+        'name',
+        'nationality',
+        'image',
+        'description',
+        'is_band'
+    ];
 }

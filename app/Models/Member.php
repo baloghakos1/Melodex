@@ -12,4 +12,12 @@ class Member extends Model
     {
         return $this->belongsTo(Artist::class, 'artist_id');
     }
+
+    protected $fillable = [
+        'name',
+        'instrument',
+        'year',
+        'artist_id',
+        'image'
+    ];
 }
