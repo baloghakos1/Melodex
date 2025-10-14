@@ -19,6 +19,7 @@ class SongApiController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'songwriter' => 'required|string|max:255',
+            'lyrics' => 'nullable|string',
             'album_id' => 'required|exists:albums,id',
         ]);
         $product = Song::create($request->all());
@@ -34,6 +35,7 @@ class SongApiController extends Controller
         $request->validate([
             'name' => 'nullable|string|max:255',
             'songwriter' => 'nullable|string|max:255',
+            'lyrics' => 'nullable|string',
             'album_id' => 'nullable|exists:albums,id',
         ]);
         $product = Song::findOrFail($id);

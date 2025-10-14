@@ -16,6 +16,7 @@ class Song extends Model
     protected $fillable = [
         'name',
         'songwriter',
+        'lyrics',
         'album_id'
     ];
 }
