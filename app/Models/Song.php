@@ -12,4 +12,10 @@ class Song extends Model
     {
         return $this->belongsTo(Album::class);
     }
+
+    protected $fillable = [
+        'name',
+        'songwriter',
+        'album_id'
+    ];
 }
