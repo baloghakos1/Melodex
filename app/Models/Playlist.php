@@ -4,24 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Song extends Model
+class Playlist extends Model
 {
     public $timestamps = false;
 
-    function album()
+    public function user()
     {
-        return $this->belongsTo(Album::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     function song_playlist()
     {
         return $this->hasMany(Song_Playlist::class);
     }
-
-    protected $fillable = [
-        'name',
-        'songwriter',
-        'lyrics',
-        'album_id'
-    ];
 }
